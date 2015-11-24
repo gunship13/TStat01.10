@@ -13,6 +13,7 @@
 #define DEBUG
 
 // Set up global screen data
+
 TouchScreen ts = TouchScreen(XP, YP, XM, YM);
 
 TouchButton *p_tb1;
@@ -36,12 +37,13 @@ void DisplayClass::init(void)
 	TxBox(182, 32, 46, 20, BLACK, CYAN, "Cool");
 
 	// Display the Version # at the bottom of the display
+//1113	TxBox(10, 290, 220, 20, BLACK, WHITE, "TStat 01.10");
 	TxBox(10, 290, 220, 20, BLACK, WHITE, "TStat 01.10");
-
+	delay(1000);   // Show Version for One second
 	// Display Oprating Mode and Fan Status
 	
-	TxBox(10, 260, 220, 20, BLACK, YELLOW, strcat(tempControl.getSysModeTx(), tempControl.getSysFanTx()));
-
+//1113	TxBox(10, 260, 220, 20, BLACK, YELLOW, strcat(tempControl.getSysModeTx(), tempControl.getSysFanTx()));
+	TxBox(10, 290, 220, 20, BLACK, YELLOW, strcat(tempControl.getSysModeTx(), tempControl.getSysFanTx()));
 	static TouchButton tb1[NUM_BUTTONS] = {								       //   ENUM
 		TouchButton(190, 60, 40, 40, WHITE, RED, "+"),    // Cool +			        COOL_UP
 		TouchButton(190, 104, 40, 40, WHITE, BLUE, "-"),  // Cool -			        COOL_DN
@@ -221,9 +223,13 @@ void DisplayClass::write()
 
 	// Display Oprating Mode
 	
-	TxBox(10, 260, 220, 20, BLACK, YELLOW, strcat(tempControl.getSysModeTx(), tempControl.getSysFanTx()));
+//1113	TxBox(10, 260, 220, 20, BLACK, YELLOW, strcat(tempControl.getSysModeTx(), tempControl.getSysFanTx()));
+	TxBox(10, 290, 220, 20, BLACK, YELLOW, strcat(tempControl.getSysModeTx(), tempControl.getSysFanTx()));
+
 	if (tempControl.getRunCommand() == CMD_EMR_HEAT)
-		TxBox(200, 260, 30, 20, RED, YELLOW, "EM");
+//1113		TxBox(200, 260, 30, 20, RED, YELLOW, "EM");
+		TxBox(200, 290, 30, 20, RED, YELLOW, "EM");
+
 }
 
 void DisplayClass::attachButtons(TouchButton *pButton, u8 NumButtons)  // Get pointer to array of buttons
@@ -241,9 +247,9 @@ void DisplayClass::getTouch()
 	HeldButtonIndex = END_BUT;  // Use large value for non-index indication
 	Point p = pTS->getPoint();
 
-	if (p.z > __PRESURE) {
-		p.x = map(p.x, TS_MINX, TS_MAXX, 0, 240);
-		p.y = map(p.y, TS_MINY, TS_MAXY, 0, 320);
+	if (p.z > __PRESURE) {  // Map the X and Y Touch Screen Values to X and Y Screen Pixels
+		p.x = map(p.x, TS_MINX, TS_MAXX, SCREEN_LEFT, SCREEN_RIGHT);
+		p.y = map(p.y, TS_MINY, TS_MAXY, SCREEN_TOP,  SCREEN_BOT);
 	}
 	else {
 		p.x = 0;
