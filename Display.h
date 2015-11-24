@@ -11,6 +11,12 @@
 #include "TouchButton.h"
 #include <SeeedTouchScreen.h>
 
+// X is Horizontal Axis and Y is Vericle Axis
+#define SCREEN_LEFT    0    // MinX - Display Left Side Pixel Value
+#define SCREEN_RIGHT 240    // MaxX - Display Right Side Pixel Value
+#define SCREEN_TOP     0    // MinY - Display Top Pixel Value
+#define SCREEN_BOT   320    // MaxY - Diaplay Bottom Pixel Value
+
 // Define additonal colors
 #define PINK 0xFAAA		
 #define RED1 0xf0e0
