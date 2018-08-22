@@ -134,6 +134,8 @@ char* TemperatureControl::getSysModeTx()
 	case SYS_EMR_HEAT:
 		sprintf(sysModeChar, "EMR HEAT");
 		break;
+	default :
+		sprintf(sysModeChar, "Invalid Mode");
 	}
 
 	return sysModeChar;
@@ -205,9 +207,6 @@ u8 TemperatureControl::runControlRoomTemp(void)
 			runCommand = CMD_COOL;
 		break;
 
-	// case FAN_SWITCH:  This is no longer a system mode
-	//	runCommand = CMD_FAN_ONLY;
-	//	break;
 
 	default:
 	case SYS_OFF:

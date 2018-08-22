@@ -28,22 +28,21 @@
 #define THERMOSTAT_CMD       0x00F0
 
 #define LCD_HW_V0                // This would be for unmodified HW
-//#define LCD_HW_V1   1                // 470 Ohm resistor on Analog In Pin 0
+//#define LCD_HW_V1                  // use Analog Reverence Voltate In Pin 0
 
 #ifdef LCD_HW_V0
 	#define REFERANCE_VOLTAGE 5.0
-#else 
-	#define REFERANCE_VOLTAGE 1.1
 #endif
 
-//#ifdef LCD_HW_V1
-//#define REFERANCE_VOLTAGE 1.1
-//#endif
+
+#ifdef LCD_HW_V1
+#define REFERANCE_VOLTAGE 1.879
+#endif
 
 #define ANALOG_LSB (REFERANCE_VOLTAGE/1024.0)        // define LSB for 10 bit A/D conversion
 
 #define TEMP_IN_CONVERT 0.010  // 10mV per Deg Celsius
-#define TEMP_DIFF 0.6          // This provides the hysteresis for the Heating and Cooling Cycling On and Off
+#define TEMP_DIFF 0.4          // This provides the hysteresis for the Heating and Cooling Cycling On and Off
 #define TEMP_EM_DIFF 2        // In HEAT Mode, when Temperatre Lags by this amount then kick in Emergency Heat
 // Mode menu Items
 
@@ -53,9 +52,9 @@
 
 #define KEY_HOLD_HALF_SEC 2         // 250ms * 2 = Half Second 
 
-enum SYS_MODES { SYS_OFF, SYS_COOL, SYS_HEAT, SYS_EMR_HEAT, SYS_AUTO, FAN_SWITCH };
-#define MAX_MODE_NUMBER   FAN_SWITCH
-// Note Keep SYS_OFF as the last item since it is used as the Max Index for some error checking
+enum SYS_MODES { SYS_OFF, SYS_COOL, SYS_HEAT, SYS_EMR_HEAT, SYS_AUTO };
+#define MAX_MODE_NUMBER   SYS_AUTO
+// Note Keep SYS_AUTO as the last item since it is used as the Max Index for some error checking
 
 // Define Structure To Hold Values in EEProm Memory across loss of power or restarts
 // This will also be used in the future as an API Interface for remote control of the thermostat.

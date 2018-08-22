@@ -23,6 +23,7 @@ class TemperatureControl
 	 u16 padding;       // Extra Bytes of padding
 
 #define TC_DATA_SIZE sizeof(TemperatureControl)   // This will be used by all the buffering and copying 
+	 // ??? Is this just the size of the data above or also the functions below?
 
 public:
 	void init();

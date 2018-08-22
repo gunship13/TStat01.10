@@ -20,7 +20,7 @@ void RelayClass::init()
 void RelayClass::commandRelays(u8 relayCommand)
 {
 	int i;
-	byte relayOut;  // ??? this is not needed anymore except for Debug
+	
 
 
 	switch (relayCommand){
@@ -69,12 +69,17 @@ void RelayClass::commandRelays(u8 relayCommand)
 	}  // end switch
 
 
-#ifdef DEBUG
+#ifdef SKIP
 	u8 outputCmd = 0x0F & relayOut;
 	Serial.print("rlOut = "); Serial.print(relayOut); Serial.print(" rCmd = "); Serial.print(relayCommand);
 	Serial.println();
 #endif
 
+}
+
+int RelayClass::status(void) 
+{
+	return relayOut;
 }
 
 RelayClass Relay;

@@ -1,11 +1,12 @@
 
 /* 
-** File: TStat01.10.ino
-** Date: 10/06/2015
+** File: TStat.ino   Version 2.00
+** Revision Date: 8/21/2018
+** Original Date: 10/06/2015  
 ** By:   Mike Cipolla
 **
 ** This is a HVAC Thermostat Application for the Arduino Mega with a LCD Touch Sheild
-** This revision 1.10 adds Ethernet Remote Control
+** This revision 2.00 adds Ethernet Remote Control
 */
 
 

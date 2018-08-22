@@ -53,11 +53,12 @@
 class RelayClass
 {
  protected:
-
+	 byte relayOut;  // ??? this is not needed anymore except for Debug
 
  public:
 	void init();
 	void commandRelays(u8 relyCommands);
+	int status(void);
 };
 
 extern RelayClass Relay;

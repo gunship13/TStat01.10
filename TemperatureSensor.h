@@ -14,6 +14,7 @@ class TemperatureSensorClass
 {
  protected:
 	  float smoothTemp;
+	  float tempReadC;
 	  float rawTemp;
 	 uint8_t inputPin;
 
@@ -29,7 +30,7 @@ class TemperatureSensorClass
 
 };
 
-// extern TemperatureSensorClass TemperatureSensor;
+ extern TemperatureSensorClass myTSenor;
 
 #endif
 

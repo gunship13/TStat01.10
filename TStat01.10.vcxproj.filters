@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="TStat01.10.ino" />
+    <None Include="TStat.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TemperatureSensor.h">
@@ -51,6 +51,9 @@
     <ClInclude Include="__vm\.TStat01.10.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ioSerialCommands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TemperatureSensor.cpp">
@@ -80,5 +83,11 @@
     <ClCompile Include="ioEther.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ioSerialCommands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
   </ItemGroup>
 </Project>
